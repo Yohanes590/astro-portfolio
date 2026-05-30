@@ -1,0 +1,345 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../lib/projects-data';
+
+import {
+  ArrowLeft,
+  ChevronRight,
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | Dev_Log`}>
+  <main class="relative min-h-screen overflow-hidden bg-[#030303] text-zinc-300 selection:bg-green-500 selection:text-black">
+
+    <!-- BACKGROUND -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+
+      <!-- glow -->
+      <div class="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-green-500/10 blur-[160px] rounded-full"></div>
+
+      <!-- radial -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.14),transparent_35%)]"></div>
+
+      <!-- grid -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+
+      <!-- fade -->
+      <div class="absolute inset-0 bg-black/70 backdrop-blur-3xl"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-xl">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <a
+          href="/#projects"
+          class="group flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] font-mono text-zinc-400 hover:text-green-400 transition-colors"
+        >
+          <ArrowLeft
+            size={14}
+            className="group-hover:-translate-x-1 transition-transform duration-300"
+          />
+          Return_Back
+        </a>
+
+        <div class="flex items-center gap-5 text-[10px] font-mono tracking-widest uppercase text-zinc-600">
+
+          <div class="flex items-center gap-2">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+            </span>
+
+            Live_Sync
+          </div>
+
+          <span class="hidden md:block">
+            ET_ADDIS_ABABA // {new Date().toLocaleDateString()}
+          </span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <section class="relative max-w-7xl mx-auto px-6 pt-20 pb-32">
+
+      <!-- HERO -->
+      <header class="relative mb-32">
+
+        <!-- HUGE BG TEXT -->
+        <div
+          class="absolute -top-10 left-0 text-[100px] md:text-[180px] lg:text-[240px] font-black uppercase tracking-[-0.08em] text-white/[0.03] leading-none pointer-events-none select-none"
+        >
+          {project.title}
+        </div>
+
+        <div class="relative z-10 max-w-5xl">
+
+          <!-- TAGS -->
+          <div class="flex flex-wrap items-center gap-3 mb-8">
+
+            <span
+              class="px-4 py-1.5 rounded-full border border-green-500/20 bg-green-500/10 text-green-400 text-[10px] uppercase tracking-[0.3em] font-mono"
+            >
+              {project.status}
+            </span>
+
+            <span
+              class="px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-zinc-400 text-[10px] uppercase tracking-[0.3em] font-mono"
+            >
+              {project.category}
+            </span>
+
+          </div>
+
+          <!-- TITLE -->
+          <h1
+            class="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase leading-[0.9] tracking-[-0.08em] text-white"
+          >
+            {project.title}
+            <span class="text-green-500">.</span>
+          </h1>
+
+          <!-- DESCRIPTION -->
+          <p
+            class="mt-10 max-w-3xl text-lg md:text-2xl leading-relaxed text-zinc-400 font-light"
+          >
+            {project.description}
+          </p>
+
+          <!-- ACTIONS -->
+          <div class="flex flex-wrap items-center gap-4 mt-12">
+
+            <a
+              href={project.github}
+              target="_blank"
+              class="group inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-green-500 text-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-all duration-300 shadow-[0_0_40px_rgba(34,197,94,0.2)]"
+            >
+              Initialize_Repo
+
+              <ChevronRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </a>
+
+            <div
+              class="px-6 py-4 rounded-2xl border border-white/10 bg-white/[0.03] text-zinc-500 text-xs uppercase tracking-[0.25em] font-mono"
+            >
+              System Architecture Active
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+        <!-- SIDEBAR -->
+        <aside class="lg:col-span-4 space-y-10 lg:sticky lg:top-28 h-fit">
+
+          <!-- TECH STACK -->
+          <div
+            class="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8"
+          >
+            <p
+              class="text-[11px] uppercase tracking-[0.35em] font-mono text-zinc-500 mb-6"
+            >
+              Tech_Manifest
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+              {project.technologies.map((tech) => (
+                <span
+                  class="px-4 py-2 rounded-xl border border-white/10 bg-black/40 text-zinc-300 text-xs font-medium hover:border-green-500/30 hover:text-green-400 transition-all duration-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- ARCH -->
+          <div
+            class="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8"
+          >
+            <p
+              class="text-[11px] uppercase tracking-[0.35em] font-mono text-zinc-500 mb-6"
+            >
+              Node_Architecture
+            </p>
+
+            <div class="space-y-4">
+              {project.architecture.map((arch) => (
+                <div
+                  class="group flex items-center justify-between rounded-2xl border border-white/5 bg-black/30 p-4 hover:border-green-500/20 hover:bg-green-500/[0.03] transition-all duration-300"
+                >
+                  <span
+                    class="text-[10px] uppercase tracking-[0.25em] font-mono text-zinc-500"
+                  >
+                    {arch.name}
+                  </span>
+
+                  <span class="text-sm font-bold text-white">
+                    {arch.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="lg:col-span-8 space-y-24">
+
+          <!-- FEATURES -->
+          <section>
+
+            <div class="mb-10">
+              <p
+                class="text-[11px] uppercase tracking-[0.35em] font-mono text-zinc-500 mb-4"
+              >
+                Core_Features
+              </p>
+
+              <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">
+                System Modules
+              </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              {project.features.map((feature) => {
+                const Icon = feature.icon;
+
+                return (
+                  <div
+                    class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-7 hover:border-green-500/20 transition-all duration-500"
+                  >
+
+                    <!-- glow -->
+                    <div
+                      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.12),transparent_45%)]"
+                    ></div>
+
+                    <div class="relative z-10">
+
+                      <div
+                        class="w-14 h-14 rounded-2xl border border-green-500/20 bg-green-500/10 flex items-center justify-center text-green-400 mb-6"
+                      >
+                        <Icon size={24} strokeWidth={1.8} />
+                      </div>
+
+                      <h3
+                        class="text-xl font-bold text-white mb-3 tracking-tight"
+                      >
+                        {feature.title}
+                      </h3>
+
+                      <p class="text-sm leading-relaxed text-zinc-400">
+                        {feature.description}
+                      </p>
+
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          <!-- CHALLENGES -->
+          <section
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8"
+          >
+
+            <div
+              class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-green-500/40 to-transparent"
+            ></div>
+
+            <div class="flex items-center justify-between mb-8">
+
+              <div>
+                <p
+                  class="text-[11px] uppercase tracking-[0.35em] font-mono text-zinc-500 mb-3"
+                >
+                  Anomaly_Detection.log
+                </p>
+
+                <h3 class="text-3xl font-black text-white">
+                  Engineering Challenges
+                </h3>
+              </div>
+
+              <div
+                class="hidden md:flex items-center gap-2 text-green-400 text-xs uppercase tracking-[0.25em] font-mono"
+              >
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                Active
+              </div>
+
+            </div>
+
+            <div class="space-y-4">
+
+              {project.challenges.map((challenge) => (
+                <div
+                  class="group flex gap-5 rounded-2xl border border-white/5 bg-black/30 p-5 hover:border-green-500/20 hover:bg-green-500/[0.03] transition-all duration-300"
+                >
+
+                  <span
+                    class="text-green-400 font-mono text-sm opacity-50 group-hover:opacity-100"
+                  >
+                    >>
+                  </span>
+
+                  <p
+                    class="text-sm leading-relaxed text-zinc-500 group-hover:text-zinc-300 transition-colors"
+                  >
+                    {challenge}
+                  </p>
+
+                </div>
+              ))}
+
+            </div>
+          </section>
+
+          <!-- FUTURE -->
+          <footer
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-green-500/[0.08] to-transparent p-10"
+          >
+
+            <div
+              class="absolute top-0 right-0 w-[300px] h-[300px] bg-green-500/10 blur-[120px]"
+            ></div>
+
+            <p
+              class="text-[11px] uppercase tracking-[0.35em] font-mono text-green-400 mb-6"
+            >
+              Next_Iteration_Goal
+            </p>
+
+            <h2
+              class="relative z-10 text-4xl md:text-6xl font-black uppercase tracking-[-0.05em] leading-[0.95] text-white"
+            >
+              "{project.futureVision}"
+            </h2>
+
+          </footer>
+
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

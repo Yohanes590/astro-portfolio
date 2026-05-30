@@ -1,0 +1,135 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "@/components/hero-section-components/nav-bar";
+import { projects } from "@/lib/projects-data";
+import { ArrowLeft } from "lucide-react";
+
+export async function getStaticPaths() {
+    return projects.map((project) => ({
+        params: { id: project.id },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout>
+    <Navbar client:load />
+
+    <main class="bg-[#050505] min-h-screen pt-32 pb-24 relative overflow-hidden text-white">
+        {/* Background Grid */}
+        <div class="absolute inset-0 z-0 opacity-[0.03] [background-image:linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] [background-size:40px_40px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            {/* Back Button */}
+            <a href="/" class="inline-flex items-center gap-2 text-zinc-400 hover:text-green-500 transition-colors mb-12 font-mono text-sm uppercase tracking-widest">
+                <ArrowLeft className="w-4 h-4" /> Back to Home
+            </a>
+
+            {/* Header Section */}
+            <div class="mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-[10px] font-mono uppercase tracking-[0.3em] text-green-500">{project.category} // {project.status}</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-6">{project.title}</h1>
+                <p class="text-2xl md:text-3xl font-light text-zinc-400 max-w-3xl leading-relaxed">{project.slogan}</p>
+            </div>
+
+            {/* Image & Overview */}
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+                <div class="rounded-3xl border border-white/10 overflow-hidden bg-zinc-900/50 backdrop-blur-sm aspect-video sm:aspect-auto">
+                    <img src={project.image} alt={project.title} class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-2xl font-bold mb-6 tracking-tight">Project Overview</h2>
+                    <p class="text-zinc-400 text-lg leading-relaxed mb-8 font-light">
+                        {project.description}
+                    </p>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-4">Technologies</h3>
+                        <div class="flex flex-wrap gap-2">
+                            {project.technologies.map((tech: string) => (
+                                <span class="text-xs px-3 py-1.5 rounded border border-white/10 bg-white/5 text-zinc-300 font-mono">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    {project.github && (
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 text-white font-mono text-sm uppercase tracking-widest transition-all w-max">
+                            View Source
+                        </a>
+                    )}
+                </div>
+            </div>
+
+            {/* Architecture & Features Grid */}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+                {/* Key Features */}
+                <div>
+                    <h2 class="text-2xl font-bold mb-8 tracking-tight border-b border-white/10 pb-4">Key Features</h2>
+                    <div class="space-y-6">
+                        {project.features.map((feature: any) => (
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 p-2 rounded bg-green-500/10 border border-green-500/20 text-green-500">
+                                    <div class="w-5 h-5 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-sm"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white tracking-tight">{feature.title}</h4>
+                                    <p class="text-zinc-400 font-light mt-1">{feature.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Architecture */}
+                <div>
+                    <h2 class="text-2xl font-bold mb-8 tracking-tight border-b border-white/10 pb-4">Architecture</h2>
+                    <div class="space-y-6">
+                        {project.architecture.map((arch: any) => (
+                            <div class="flex items-start gap-4 p-4 rounded-xl border border-white/5 bg-white/5">
+                                <div>
+                                    <h4 class="text-sm font-mono text-green-500 uppercase tracking-widest mb-1">{arch.name}</h4>
+                                    <p class="text-white font-medium">{arch.value}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Bottom Info: Challenges & Vision */}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-white/10 pt-16">
+                <div>
+                    <h3 class="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-6">Technical Challenges</h3>
+                    <ul class="space-y-3">
+                        {project.challenges.map((challenge: string) => (
+                            <li class="flex items-center gap-3 text-zinc-300 font-light">
+                                <span class="w-1.5 h-1.5 bg-zinc-600 rounded-full"></span>
+                                {challenge}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-white/10 bg-green-500/5 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/10 blur-[50px]"></div>
+                    <h3 class="text-sm font-mono text-green-500 uppercase tracking-widest mb-4">Future Vision</h3>
+                    <p class="text-lg text-zinc-300 leading-relaxed font-light relative z-10 italic">
+                        "{project.futureVision}"
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</Layout>
