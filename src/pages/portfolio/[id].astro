@@ -55,21 +55,34 @@ const { project } = Astro.props;
                         <div class="flex flex-wrap gap-2">
                             {project.technologies.map((tech: string) => (
                                 <span class="text-xs px-3 py-1.5 rounded border border-white/10 bg-white/5 text-zinc-300 font-mono">
-                                    {tech}
+                                    {tech} 
                                 </span>
                             ))}
                         </div>
                     </div>
                     
-                    {project.github && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 text-white font-mono text-sm uppercase tracking-widest transition-all w-max">
-                            View Source
-                        </a>
-                    )}
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        {project.id !== 'cyber-lab' && (
+                            (project.url || project.id === 'ayn-awaj' || project.id === 'yegna-pay') ? (
+                                <a href={project.url || (project.id === 'ayn-awaj' ? 'https://www.aynawaj.com/' : 'https://www.yegnapay.com/')} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded border border-green-500/50 bg-green-500/10 hover:bg-green-500/20 text-green-400 font-mono text-sm uppercase tracking-widest transition-all w-max">
+                                    View Site
+                                </a>
+                            ) : (
+                                <button disabled class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded border border-white/10 bg-white/5 text-zinc-500 font-mono text-sm uppercase tracking-widest cursor-not-allowed w-max opacity-50">
+                                    View Site
+                                </button>
+                            )
+                        )}
+                        
+                        {project.github && (
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 text-white font-mono text-sm uppercase tracking-widest transition-all w-max">
+                                {project.id === 'cyber-lab' ? 'View GitHub' : 'View Source'}
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
 
-            {/* Architecture & Features Grid */}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
                 {/* Key Features */}
                 <div>

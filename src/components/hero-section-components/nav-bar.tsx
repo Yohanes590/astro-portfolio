@@ -83,9 +83,13 @@ const Navbar = () => {
                         <a href="https://www.linkedin.com/in/yohanes-mulugeta21/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-green-500 transition-all hover:scale-110">
                             <LinkedinIcon className="w-5 h-5" />
                         </a>
-                        <button className="px-6 py-2.5 bg-green-500/10 border border-green-500/50 text-green-500 text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-green-500 hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                        <a 
+                            href="/yohanes%20mulugeta%20resume.pdf" 
+                            download="Yohanes_Mulugeta_Resume.pdf"
+                            className="px-6 py-2.5 bg-green-500/10 border border-green-500/50 text-green-500 text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-green-500 hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.1)] flex items-center justify-center"
+                        >
                             Resume
-                        </button>
+                        </a>
                     </div>
                 </div>
 

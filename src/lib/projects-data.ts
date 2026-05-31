@@ -101,6 +101,8 @@ export const projects = [
             "To become a trusted Ethiopian fintech infrastructure platform for developers and online businesses.",
 
         github: "https://github.com/yohanes590",
+        
+        url: "https://www.yegnapay.com/",
 
         image: "/yegna-pay.jpg",
     },
@@ -191,6 +193,8 @@ export const projects = [
             "To evolve into a modern Ethiopian luxury fashion and commerce platform.",
 
         github: "https://github.com/yohanes590",
+        
+        url: "https://www.aynawaj.com/",
 
         image: "/ayn-awaj.jpg",
     },

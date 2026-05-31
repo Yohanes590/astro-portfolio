@@ -38,8 +38,8 @@ const ProjectsSection = () => {
             image: "/cyber-lab.png",
         },
         {
-            id: "ayne-awaj",
-            title: "Ayne Awaj",
+            id: "ayn-awaj",
+            title: "Ayn Awaj",
             tagline: "Luxury E-Commerce",
             desc: "Premium footwear engine optimized for TikTok traffic with automated Telegram order fulfillment.",
             icon: <ShoppingBag className="w-6 h-6" />,
@@ -54,12 +54,12 @@ const ProjectsSection = () => {
     useEffect(() => {
         let ctx = gsap.context(() => {
             // Header Reveal
-            gsap.fromTo(headerRef.current, 
-                { y: 50, opacity: 0 }, 
-                { 
-                    y: 0, 
-                    opacity: 1, 
-                    duration: 1, 
+            gsap.fromTo(headerRef.current,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: headerRef.current,
@@ -87,7 +87,7 @@ const ProjectsSection = () => {
                     }
                 );
             });
-            
+
         }, sectionRef);
 
         return () => ctx.revert();
@@ -116,8 +116,8 @@ const ProjectsSection = () => {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
                     {projects.map((p, index) => (
-                        <a 
-                            href={`/portfolio/${p.id}`} 
+                        <a
+                            href={`/portfolio/${p.id}`}
                             key={p.id}
                             ref={el => { cardsRef.current[index] = el; }}
                             className={`group relative flex flex-col justify-between p-1 rounded-3xl overflow-hidden bg-zinc-900/40 border border-white/10 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 ${p.className} ${p.borderAccent}`}
@@ -162,8 +162,8 @@ const ProjectsSection = () => {
                     ))}
 
                     {/* Contact / More Projects Tile */}
-                    <div 
-                        ref={el => { cardsRef.current[ projects.length ] = el; }}
+                    <div
+                        ref={el => { cardsRef.current[projects.length] = el; }}
                         className="md:col-span-1 md:row-span-1 group relative flex flex-col items-center justify-center p-12 rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-900/80 to-black border border-white/10 hover:border-green-500/50 transition-all duration-500"
                     >
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.03)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] animate-[shimmer_8s_infinite] pointer-events-none" />
