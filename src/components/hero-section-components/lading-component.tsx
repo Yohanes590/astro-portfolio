@@ -54,12 +54,22 @@ export default function LadingComponent() {
 
                     {/* Professional Call to Action Buttons */}
                     <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500 fill-mode-both">
-                        <button className="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5">
+                        <a 
+                            href="#projects" 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const target = document.querySelector('#projects');
+                                if (target) {
+                                    target.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                            className="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5 inline-block text-center cursor-pointer"
+                        >
                             View Projects
-                        </button>
-                        <button className="px-8 py-3 bg-transparent border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300">
+                        </a>
+                        <a href="https://www.linkedin.com/in/yohanes-mulugeta21/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-transparent border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300 inline-block text-center cursor-pointer">
                             Get in Touch
-                        </button>
+                        </a>
                     </div>
 
                 </div>
