@@ -72,7 +72,7 @@ export default function AboutSection() {
         {/* Content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
 
-          {/* Profile Card — left */}
+          {/* Profile Card   left */}
           <div
             ref={cardRef}
             className="lg:col-span-2 about-animate opacity-0 translate-y-8 transition-all duration-700 delay-200 ease-out"
@@ -116,14 +116,14 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Bio + tech stack — right */}
+          {/* Bio + tech stack   right */}
           <div ref={contentRef} className="lg:col-span-3 flex flex-col gap-8">
             {/* Bio text */}
             <div className="about-animate opacity-0 translate-y-8 transition-all duration-700 delay-300 ease-out">
               <div className="rounded-3xl border border-white/10 bg-zinc-900/40 backdrop-blur-sm p-8 space-y-4">
                 <p className="text-zinc-300 text-base leading-relaxed">
                   My name is <span className="text-white font-semibold">Yohanes Mulugeta</span>, also known as{' '}
-                  <span className="text-green-400 font-semibold">Jo</span> — a passionate full-stack developer from{' '}
+                  <span className="text-green-400 font-semibold">Jo</span>   a passionate full-stack developer from{' '}
                   <span className="text-white font-medium">Ethiopia</span> focused on building modern web applications,
                   startup-level systems, and impactful digital products.
                 </p>

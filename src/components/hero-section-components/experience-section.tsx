@@ -126,7 +126,7 @@ export default function ExperienceSection() {
 
                 {/* Card */}
                 <div className="relative rounded-3xl border border-white/10 bg-zinc-900/40 backdrop-blur-sm p-8 overflow-hidden group-hover:border-white/20 transition-all duration-500">
-                  
+
                   {/* Hover gradient border glow */}
                   <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`}>
                     <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${exp.accent} opacity-[0.04]`} />
@@ -145,7 +145,7 @@ export default function ExperienceSection() {
                         <h3 className="text-2xl font-bold text-white tracking-tight leading-tight">
                           {exp.role}
                         </h3>
-                        <p className="text-zinc-400 font-medium mt-0.5">— {exp.company}</p>
+                        <p className="text-zinc-400 font-medium mt-0.5">  {exp.company}</p>
                       </div>
                       <div className={`flex-shrink-0 p-2 rounded-full border ${exp.accentSoft} ${exp.accentText} opacity-0 group-hover:opacity-100 transition-all duration-300 self-start`}>
                         <ArrowUpRight className="w-4 h-4" />
