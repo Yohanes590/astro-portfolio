@@ -1,18 +1,20 @@
 ---
-import HeroSection from '../components/hero';
-import Layout from '../layouts/Layout.astro';
-import Projects from '@/components/hero-section-components/projects-component';
-import Navbar from '@/components/hero-section-components/nav-bar';
-import AboutSection from '@/components/hero-section-components/about-section';
-import ExperienceSection from '@/components/hero-section-components/experience-section';
-import ContactSection from '@/components/hero-section-components/contact-section';
+import HeroSection from "../components/hero";
+import Layout from "../layouts/Layout.astro";
+import Projects from "@/components/hero-section-components/projects-component";
+import Navbar from "@/components/hero-section-components/nav-bar";
+import AboutSection from "@/components/hero-section-components/about-section";
+import ExperienceSection from "@/components/hero-section-components/experience-section";
+import TechSentinel from "@/components/hero-section-components/tech-stacks";
+import ContactSection from "@/components/hero-section-components/contact-section";
 ---
 
 <Layout>
-	<Navbar client:load/>
-	<HeroSection client:load/>
-	<Projects client:load/>
-	<AboutSection client:load/>
-	<ExperienceSection client:load/>
-	<ContactSection client:load/>
+  <Navbar client:load />
+  <HeroSection client:load />
+  <AboutSection client:load />
+  <Projects client:load />
+  <TechSentinel client:load />
+  <ExperienceSection client:load />
+  <ContactSection client:load />
 </Layout>

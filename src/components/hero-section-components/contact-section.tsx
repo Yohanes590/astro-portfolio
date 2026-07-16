@@ -27,7 +27,7 @@ const contacts = [
   {
     id: 'instagram',
     platform: 'Instagram',
-    handle: '@mrx_man21',
+    handle: 'Mrx_Man21',
     href: 'https://instagram.com/mrx_man21',
     icon: <InstagramIcon className="w-6 h-6" />,
     description: 'Follow my visual journey',
@@ -40,7 +40,7 @@ const contacts = [
   {
     id: 'github',
     platform: 'GitHub',
-    handle: 'yohanes590',
+    handle: 'Yohanes590',
     href: 'https://github.com/yohanes590',
     icon: <GithubIcon className="w-6 h-6" />,
     description: 'Explore my open source work',
@@ -53,7 +53,7 @@ const contacts = [
   {
     id: 'linkedin',
     platform: 'LinkedIn',
-    handle: 'yohanes-mulugeta21',
+    handle: 'Yohanes Mulugeta',
     href: 'https://www.linkedin.com/in/yohanes-mulugeta21/',
     icon: <LinkedinIcon className="w-6 h-6" />,
     description: 'Connect professionally',
