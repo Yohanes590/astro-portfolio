@@ -100,7 +100,6 @@ export const projects = [
         futureVision:
             "To become a trusted Ethiopian fintech infrastructure platform for developers and online businesses.",
 
-        github: "https://github.com/yohanes590",
 
         url: "https://yegna-pay.vercel.app/",
 
@@ -192,7 +191,6 @@ export const projects = [
         futureVision:
             "To evolve into a modern Ethiopian luxury fashion and commerce platform.",
 
-        github: "https://github.com/yohanes590",
 
         url: "https://www.aynawaj.com/",
 
@@ -284,7 +282,7 @@ export const projects = [
         futureVision:
             "To become a cybersecurity assessment infrastructure platform for universities and organizations.",
 
-        github: "https://github.com/yohanes590",
+        github: "https://github.com/Yohanes590/geez-cyber-lab",
 
         image: "/cyber-lab.png",
     },
